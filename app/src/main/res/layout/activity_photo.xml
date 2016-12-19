@@ -10,22 +10,152 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.jonathan.plantulike.PhotoActivity">
 
+    <ImageView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:visibility="visible"
+        android:id="@+id/imageView1"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+         />
+
     <TextView
-        android:text="Analysing Photo!"
+        android:text="Results"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_below="@+id/imageView1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="19dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
 
-    <Button
-        android:text="Return"
+
+    <TextView
+        android:text="Classification                           Probability"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="45dp"
-        android:id="@+id/button"
+        android:id="@+id/textView3"
         android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:id="@+id/result1"
+        android:layout_below="@+id/textView3"
+        android:layout_alignLeft="@+id/textView3"
+        android:layout_alignStart="@+id/textView3"
+        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+    <Button
+        android:text="Classify another plant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="72dp"
+        android:id="@+id/button"
         android:onClick="selfDestruct"
+        android:layout_below="@+id/result5"
         android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/result3"
+        android:layout_below="@+id/result2"
+        android:layout_alignLeft="@+id/result2"
+        android:layout_alignStart="@+id/result2"
+        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/result4"
+        android:layout_below="@+id/result3"
+        android:layout_alignLeft="@+id/result3"
+        android:layout_alignStart="@+id/result3"
+        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/result5"
+        android:layout_below="@+id/result4"
+        android:layout_alignLeft="@+id/result4"
+        android:layout_alignStart="@+id/result4"
+        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/result2"
+        android:layout_below="@+id/result1"
+        android:layout_alignLeft="@+id/result1"
+        android:layout_alignStart="@+id/result1"
+        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/prob1"
+        android:layout_alignLeft="@+id/prob1"
+        android:layout_alignStart="@+id/prob1"
+        android:id="@+id/prob2" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/prob2"
+        android:layout_alignRight="@+id/prob2"
+        android:layout_alignEnd="@+id/prob2"
+        android:id="@+id/prob3" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/prob3"
+        android:layout_alignLeft="@+id/prob3"
+        android:layout_alignStart="@+id/prob3"
+        android:id="@+id/prob4" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/prob4"
+        android:layout_alignLeft="@+id/prob4"
+        android:layout_alignStart="@+id/prob4"
+        android:id="@+id/prob5" />
+
+    <TextView
+        android:text="Time Taken:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/result5"
+        android:layout_alignLeft="@+id/button"
+        android:layout_alignStart="@+id/button"
+        android:layout_marginLeft="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="26dp"
+        android:id="@+id/textView15" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textView15"
+        android:layout_toLeftOf="@+id/prob5"
+        android:layout_toStartOf="@+id/prob5"
+        android:id="@+id/timetaken" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/prob1"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        android:layout_alignBaseline="@+id/result1"
+        android:layout_alignBottom="@+id/result1"
+        android:layout_toRightOf="@+id/button"
+        android:layout_toEndOf="@+id/button" />
+
+
 </RelativeLayout>

@@ -20,8 +20,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
+    public final static String EXTRA_FILE = "com.example.myfirstapp.photofilename";
     static final int REQUEST_TAKE_PHOTO = 1;
-    private ImageView mImageView;
     public String mCurrentPhotoPath;
 
 
@@ -57,40 +57,17 @@ public class MainActivity extends AppCompatActivity {
         this.sendBroadcast(mediaScanIntent);
     }
 
-    private void setPic() {
-        // Get the dimensions of the View
-        int targetW = 640;
-        int targetH = 480;
-
-        // Get the dimensions of the bitmap
-        BitmapFactory.Options bmOptions = new BitmapFactory.Options();
-        bmOptions.inJustDecodeBounds = true;
-        BitmapFactory.decodeFile(mCurrentPhotoPath, bmOptions);
-        int photoW = bmOptions.outWidth;
-        int photoH = bmOptions.outHeight;
-
-        // Determine how much to scale down the image
-        int scaleFactor = Math.min(photoW/targetW, photoH/targetH);
-
-        // Decode the image file into a Bitmap sized to fill the View
-        bmOptions.inJustDecodeBounds = false;
-        bmOptions.inSampleSize = scaleFactor;
-        bmOptions.inPurgeable = true;
-
-        Bitmap bitmap = BitmapFactory.decodeFile(mCurrentPhotoPath, bmOptions);
-        mImageView.setImageBitmap(bitmap);
-    }
-
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        setPic();
         galleryAddPic();
-        CommManager comms = new CommManager();
+
+        //CommManager comms = new CommManager();
         //comms.execute("GET","http://192.168.1.8:5000");
-        comms.execute("POST","http://192.168.1.8:5000/classify_upload", mCurrentPhotoPath);
+        //comms.execute("POST","http://192.168.1.8:5000/classify_upload", mCurrentPhotoPath);
 
         Intent intent = new Intent(this, PhotoActivity.class);
+        intent.putExtra(EXTRA_FILE, mCurrentPhotoPath);
         startActivity(intent);
     }
 
@@ -115,8 +92,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        mImageView = (ImageView) findViewById(R.id.imageView1);
     }
 
     /** Called when the user clicks the Send button */
